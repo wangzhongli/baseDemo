@@ -1,0 +1,68 @@
+package com.momo.basedemo.net.exception;
+
+import android.net.ParseException;
+
+import com.google.gson.JsonParseException;
+
+import org.json.JSONException;
+
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+
+/**
+ * @ProjectName: BaseDemo
+ * @Package: com.momo.basedemo.net
+ * @ClassName: CustomException
+ * @Description: java类作用描述  本地异常类
+ * @Author: wangzhongli
+ * @CreateDate: 2019/4/10 17:39
+ * @UpdateUser: 更新者
+ * @UpdateDate: 2019/4/10 17:39
+ * @UpdateRemark: 更新说明
+ * @Version: 1.0
+ */
+public class CustomException {
+    /**
+     * 未知错误
+     */
+    public static final int UNKNOWN = 1000;
+
+    /**
+     * 解析错误
+     */
+    public static final int PARSE_ERROR = 1001;
+
+    /**
+     * 网络错误
+     */
+    public static final int NETWORK_ERROR = 1002;
+
+    /**
+     * 协议错误
+     */
+    public static final int HTTP_ERROR = 1003;
+
+    public static ApiException handleException(Throwable e) {
+        ApiException ex;
+        if (e instanceof JsonParseException
+                || e instanceof JSONException
+                || e instanceof ParseException) {
+            //解析错误
+            ex = new ApiException(PARSE_ERROR, e.getMessage());
+            return ex;
+        } else if (e instanceof ConnectException) {
+            //网络错误
+            ex = new ApiException(NETWORK_ERROR, e.getMessage());
+            return ex;
+        } else if (e instanceof UnknownHostException || e instanceof SocketTimeoutException) {
+            //连接错误
+            ex = new ApiException(NETWORK_ERROR, e.getMessage());
+            return ex;
+        } else {
+            //未知错误
+            ex = new ApiException(UNKNOWN, e.getMessage());
+            return ex;
+        }
+    }
+}
