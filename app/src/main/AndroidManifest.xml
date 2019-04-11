@@ -3,25 +3,24 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.momo.basedemo">
 
-    <dist:module dist:instant="true" />
-    <!-- 硬件特性 -->
+    <dist:module dist:instant="true" /> <!-- 硬件特性 -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读取sd卡 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 允许程序使用摄像头 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" /><!-- 允许程序录制音频视频 -->
-    <uses-permission android:name="android.permission.CALL_PHONE" />  <!-- 打电话 -->
-    <uses-permission android:name="android.permission.VIBRATE" />  <!-- 允许访问振动设备 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 允许程序录制音频视频 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 打电话 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 允许访问振动设备 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许访问网络 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序操作网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序改变Wi-Fi连接状态 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /><!-- 通过GPS芯片接收卫星的定位信息，定位精度达10米以内 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 通过GPS芯片接收卫星的定位信息，定位精度达10米以内 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许开启闪光灯 -->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- Required -->
-
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
         android:name=".MainApplication"
@@ -31,8 +30,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--<activity-->
+            <!--android:name=".main.MainTabActivity"-->
+            <!--android:label="@string/title_activity_main2"></activity>-->
         <activity
-            android:name=".main.MainActivity"
+            android:name=".main.MainTabActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
