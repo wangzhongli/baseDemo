@@ -50,7 +50,7 @@ dependencies {
     api 'com.kyleduo.switchbutton:library:2.0.0'
 
     //recyclerViewAdapter
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     //rxLifecycle
     api 'com.trello.rxlifecycle2:rxlifecycle:2.2.0'
     api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.0'
