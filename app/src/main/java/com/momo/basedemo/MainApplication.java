@@ -2,6 +2,9 @@ package com.momo.basedemo;
 
 import android.app.Application;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
+
 /**
  * @ProjectName: BaseDemo
  * @Package: com.momo.basedemo
@@ -18,5 +21,8 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        if (BuildConfig.DEBUG) {
+            Logger.addLogAdapter(new AndroidLogAdapter());
+        }
     }
 }
