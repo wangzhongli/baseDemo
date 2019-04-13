@@ -1,13 +1,13 @@
 package com.momo.basedemo.block;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.momo.basedemo.R;
 import com.momo.basedemo.net.schedulers.SchedulerProvider;
 
-import androidx.appcompat.app.AppCompatActivity;
-import io.reactivex.annotations.Nullable;
 
 /**
  * Created by Zaifeng on 2018/3/1.

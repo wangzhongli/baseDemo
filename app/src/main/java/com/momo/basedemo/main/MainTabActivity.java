@@ -1,12 +1,13 @@
 package com.momo.basedemo.main;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.momo.basedemo.R;
 import com.momo.basedemo.base.BaseActivity;
 import com.momo.basedemo.main.fragment.FragmentFirst;
@@ -14,10 +15,6 @@ import com.momo.basedemo.main.fragment.FragmentFourth;
 import com.momo.basedemo.main.fragment.FragmentSecond;
 import com.momo.basedemo.main.fragment.FragmentThird;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 public class MainTabActivity extends BaseActivity {
 
@@ -85,6 +82,8 @@ public class MainTabActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setBackBtn();
+        setTitle("主页");
         setContentView(R.layout.activity_main_tab);
 
         llContent = (LinearLayout) findViewById(R.id.llContent);
@@ -100,7 +99,7 @@ public class MainTabActivity extends BaseActivity {
         fragment2 = new FragmentSecond();
         fragment3 = new FragmentThird();
         fragment4 = new FragmentFourth();
-        fragments = new Fragment[]{fragment1, fragment2, fragment3,fragment4};
+        fragments = new Fragment[]{fragment1, fragment2, fragment3, fragment4};
         lastfragment = 0;
         getSupportFragmentManager().beginTransaction().replace(R.id.llContent, fragment1).show(fragment1).commit();
 //        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bnv);

@@ -1,6 +1,7 @@
 package com.momo.basedemo.net.schedulers;
 
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
+
 import io.reactivex.ObservableTransformer;
 import io.reactivex.Scheduler;
 

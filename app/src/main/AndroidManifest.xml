@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.momo.basedemo">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <dist:module dist:instant="true" /> <!-- 硬件特性 -->
     <uses-feature
@@ -27,14 +33,22 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        tools:replace="android:appComponentFactory"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <!--<activity-->
-            <!--android:name=".main.MainTabActivity"-->
-            <!--android:label="@string/title_activity_main2"></activity>-->
+        android:appComponentFactory="任意字符"
+        android:theme="@style/actionbar_def_style">
         <activity
-            android:name=".main.MainTabActivity"
+            android:name=".main.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        <!--<activity-->
+            <!--android:name=".main.FirstActivity"-->
+            <!--android:label="@string/title_activity_login"></activity>-->
+        <!-- <activity -->
+        <!-- android:name=".main.MainTabActivity" -->
+        <!-- android:label="@string/title_activity_main2"></activity> -->
+        <activity
+            android:name=".main.FirstActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
