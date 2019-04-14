@@ -16,5 +16,7 @@
     <color name="gray_color">#4b4b58</color>
     <color name="hard_color">#48495f</color>
     <color name="clickspan_color">#00ddb6</color>
-    <color name="dull_blue">#3B4BBF</color>
+    <color name="dull_blue">#3B4DBF</color>
+    <!--所有分割线的颜色-->
+    <color name="divider_color">#E8E8E8</color>
 </resources>

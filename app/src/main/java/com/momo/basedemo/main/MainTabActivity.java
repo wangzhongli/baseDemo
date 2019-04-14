@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
 import com.momo.basedemo.R;
 import com.momo.basedemo.base.BaseActivity;
@@ -15,17 +16,21 @@ import com.momo.basedemo.main.fragment.FragmentFourth;
 import com.momo.basedemo.main.fragment.FragmentSecond;
 import com.momo.basedemo.main.fragment.FragmentThird;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainTabActivity extends BaseActivity {
 
-    private LinearLayout llContent;
+    private ViewPager viewPager;
+    private BottomNavigationView navigation;
+    private MenuItem menuItem;
 
     private FragmentFirst fragment1;
     private FragmentSecond fragment2;
     private FragmentThird fragment3;
     private FragmentFourth fragment4;
-    private Fragment[] fragments;
-    private int lastfragment;//用于记录上个选择的Fragment
+    private List<Fragment> fragments;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -35,40 +40,20 @@ public class MainTabActivity extends BaseActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
-                    if (lastfragment != 0) {
-                        switchFragment(lastfragment, 0);
-                        lastfragment = 0;
-                    }
+                    viewPager.setCurrentItem(0);
                     return true;
 
-                case R.id.navigation_dashboard:
-//                    mTextMessage.setText(R.string.title_dashboard);
-                {
-                    if (lastfragment != 1) {
-                        switchFragment(lastfragment, 1);
-                        lastfragment = 1;
-                    }
+                case R.id.navigation_dashboard: {
+                    viewPager.setCurrentItem(1);
 
                     return true;
                 }
-                case R.id.navigation_notifications:
-//                    mTextMessage.setText(R.string.title_notifications);
-                {
-                    if (lastfragment != 2) {
-                        switchFragment(lastfragment, 2);
-                        lastfragment = 2;
-                    }
-
+                case R.id.navigation_notifications: {
+                    viewPager.setCurrentItem(2);
                     return true;
                 }
-                case R.id.navigation_setting:
-//                    mTextMessage.setText(R.string.title_setting);
-                {
-                    if (lastfragment != 3) {
-                        switchFragment(lastfragment, 3);
-                        lastfragment = 3;
-                    }
+                case R.id.navigation_setting: {
+                    viewPager.setCurrentItem(3);
 
                     return true;
                 }
@@ -77,47 +62,80 @@ public class MainTabActivity extends BaseActivity {
             return false;
         }
     };
-    private BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setBackBtn();
-        setTitle("主页");
+        actionBarHide(true);
         setContentView(R.layout.activity_main_tab);
-
-        llContent = (LinearLayout) findViewById(R.id.llContent);
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        setTitle(null);
+        initView();
         initFragment();
     }
 
-    private void initFragment() {
+    public void initView() {
 
-        fragment1 = new FragmentFirst();
-        fragment2 = new FragmentSecond();
-        fragment3 = new FragmentThird();
-        fragment4 = new FragmentFourth();
-        fragments = new Fragment[]{fragment1, fragment2, fragment3, fragment4};
-        lastfragment = 0;
-        getSupportFragmentManager().beginTransaction().replace(R.id.llContent, fragment1).show(fragment1).commit();
-//        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bnv);
+        viewPager = (ViewPager) findViewById(R.id.vp_content);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (menuItem != null) {
+                    menuItem.setChecked(false);
+                } else {
+                    navigation.getMenu().getItem(0).setChecked(false);
+                }
+                menuItem = navigation.getMenu().getItem(position);
+                menuItem.setChecked(true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
     }
 
-    //切换Fragment
-    private void switchFragment(int lastfragment, int index) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.hide(fragments[lastfragment]);//隐藏上个Fragment
-        if (fragments[index].isAdded() == false) {
-            transaction.add(R.id.llContent, fragments[index]);
+    private void initFragment() {
+        fragment1 = FragmentFirst.newInstance();
+        fragment2 = FragmentSecond.newInstance();
+        fragment3 = FragmentThird.newInstance();
+        fragment4 = FragmentFourth.newInstance();
+        fragments = new ArrayList<>();
+        fragments.add(fragment1);
+        fragments.add(fragment2);
+        fragments.add(fragment3);
+        fragments.add(fragment4);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fragments);
+        viewPager.setAdapter(adapter);
+    }
+
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        private List<Fragment> list;
+
+        public ViewPagerAdapter(FragmentManager fm, List<Fragment> list) {
+            super(fm);
+            this.list = list;
         }
-        transaction.show(fragments[index]).commitAllowingStateLoss();
 
+        @Override
+        public Fragment getItem(int position) {
+            return list.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return list == null ? 0 : list.size();
+        }
 
     }
-
 
 }

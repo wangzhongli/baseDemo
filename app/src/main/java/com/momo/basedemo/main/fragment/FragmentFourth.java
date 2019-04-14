@@ -12,6 +12,16 @@ import com.momo.basedemo.base.BaseFragment;
 
 
 public class FragmentFourth extends BaseFragment {
+    public static FragmentFourth newInstance() {
+
+        Bundle args = new Bundle();
+
+        FragmentFourth fragment = new FragmentFourth();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -25,6 +35,6 @@ public class FragmentFourth extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        
+
     }
 }

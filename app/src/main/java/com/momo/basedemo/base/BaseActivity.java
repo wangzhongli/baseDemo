@@ -2,15 +2,18 @@ package com.momo.basedemo.base;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.momo.basedemo.R;
 import com.orhanobut.logger.Logger;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -27,7 +30,7 @@ public class BaseActivity extends AppCompatActivity {
     protected final String TAG = this.getClass().getSimpleName();
     private LinearLayout rootLayout;
 
-    protected void setTitle(String msg) {
+    protected void setTitle(@NonNull String msg) {
         if (title != null) {
             title.setText(msg);
         }
@@ -75,6 +78,26 @@ public class BaseActivity extends AppCompatActivity {
         initToolbar();
     }
 
+    /**
+     * 设置 actionBar 隐藏或者展示
+     *
+     * @param isHide true 隐藏  false 展示
+     */
+    protected void actionBarHide(boolean isHide) {
+        if (isHide) {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().hide();
+            }
+        } else {
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().show();
+            }
+        }
+    }
+
+    /**
+     * 初始化 actionbar 中的toolbar
+     */
     private void initToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {

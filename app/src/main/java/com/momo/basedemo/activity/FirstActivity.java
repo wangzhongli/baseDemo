@@ -1,4 +1,4 @@
-package com.momo.basedemo.main;
+package com.momo.basedemo.activity;
 
 import android.os.Bundle;
 

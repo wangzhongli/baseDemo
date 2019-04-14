@@ -31,26 +31,29 @@
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
+        android:appComponentFactory="demo"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        tools:replace="android:appComponentFactory"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:appComponentFactory="任意字符"
-        android:theme="@style/actionbar_def_style">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:appComponentFactory">
         <activity
-            android:name=".main.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
-        <!--<activity-->
-            <!--android:name=".main.FirstActivity"-->
-            <!--android:label="@string/title_activity_login"></activity>-->
-        <!-- <activity -->
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".activity.FirstActivity"
+            android:label="FirstActivity" />
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:label="@string/title_activity_login" />
+        <!--<activity -->
         <!-- android:name=".main.MainTabActivity" -->
         <!-- android:label="@string/title_activity_main2"></activity> -->
         <activity
-            android:name=".main.FirstActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".main.MainTabActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

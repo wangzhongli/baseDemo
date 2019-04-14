@@ -12,6 +12,14 @@ import com.momo.basedemo.base.BaseFragment;
 
 
 public class FragmentThird extends BaseFragment {
+    public static FragmentThird newInstance() {
+
+        Bundle args = new Bundle();
+
+        FragmentThird fragment = new FragmentThird();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
