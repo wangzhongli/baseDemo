@@ -39,15 +39,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <activity
-            android:name=".activity.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".activity.FirstActivity"
-            android:label="FirstActivity" />
-        <activity
-            android:name=".activity.RecyclerViewActivity"
-            android:label="@string/title_activity_login" />
         <!--<activity -->
         <!-- android:name=".main.MainTabActivity" -->
         <!-- android:label="@string/title_activity_main2"></activity> -->
@@ -60,6 +51,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".activity.FirstActivity"
+            android:label="FirstActivity" />
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:label="RecyclerViewActivity" />
+        <activity
+            android:name=".activity.RefreshRecyclerViewActivity"
+            android:label="RefreshRecyclerViewActivity" />
+
     </application>
 
 </manifest>

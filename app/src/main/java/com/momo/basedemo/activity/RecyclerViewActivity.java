@@ -1,18 +1,17 @@
 package com.momo.basedemo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.momo.basedemo.R;
 import com.momo.basedemo.base.BaseActivity;
-import com.orhanobut.logger.Logger;
+import com.momo.basedemo.widget.decoration.GridItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,16 +42,27 @@ public class RecyclerViewActivity extends BaseActivity {
         for (int i = 0; i < 1000; i++) {
             datas.add("测试RecyclerView性能" + i);
         }
-        BaseQuickAdapter adapter = new BaseQuickAdapter<String,BaseViewHolder>(R.layout.recyclerview_item, datas) {
+//        BaseQuickAdapter adapter = new BaseQuickAdapter<String,BaseViewHolder>(R.layout.recyclerview_item, datas) {
+//
+//            @Override
+//            protected void convert(BaseViewHolder helper, String item) {
+//                helper.setText(R.id.item_tv, (CharSequence) item);
+//            }
+//        };
 
-            @Override
-            protected void convert(BaseViewHolder helper, String item) {
-                helper.setText(R.id.item_tv, (CharSequence) item);
-            }
-        };
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        recyclerView.setAdapter(new Myadapter(datas));
+        BaseQuickAdapter adapter = new Myadapter(datas);
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+//        recyclerView.addItemDecoration(new GridSectionAverageGapItemDecoration(50,20,20,20));
+        recyclerView.addItemDecoration(new GridItemDecoration(mContext,R.color.colorAccent));
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(mContext, datas.get(position),Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

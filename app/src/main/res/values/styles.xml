@@ -10,6 +10,7 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
     <style name="actionbar_def_style" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- 在样式里面直接替换掉actionbar的背景，避免在有的窗口进入慢时导致进入时显示系统默认的actionbar -->
         <item name="android:background">@color/colorBg</item>
@@ -23,5 +24,19 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--View之间的分割线 水平-->
+    <style name="line_horizontal_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_horizontal_height</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <!--View之间的分割线 竖直-->
+    <style name="line_vertical_style">
+        <item name="android:layout_width">@dimen/line_horizontal_height</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.momo.basedemo.base;
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +26,8 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 日志输出标志getSupportActionBar().
      **/
+
+    protected Activity mContext;
     private TextView title;
     private ImageView back;
     protected final String TAG = this.getClass().getSimpleName();
@@ -73,6 +76,7 @@ public class BaseActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
+        mContext = this;
         // 这句很关键，注意是调用父类的方法
         super.setContentView(R.layout.activity_base);
         initToolbar();

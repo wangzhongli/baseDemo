@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,22 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="48dip"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_item_child"
         android:drawableRight="@drawable/right_arrow"
         android:gravity="center_vertical"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:text="RecyclerView "
-        android:background="@drawable/selector_item_child"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="RecyclerView " />
 
-    <View
+    <View style="@style/line_horizontal_style" />
+
+    <TextView
+        android:id="@+id/item_tv1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_horizontal_height"
-        android:background="@color/divider_color"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_tv" />
+        android:layout_height="48dip"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_item_child"
+        android:drawableRight="@drawable/right_arrow"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="RecyclerView  Pull TO Refresh" />
 
-</android.support.constraint.ConstraintLayout>
+    <View style="@style/line_horizontal_style" />
+</LinearLayout>

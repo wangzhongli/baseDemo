@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.momo.basedemo.R;
 import com.momo.basedemo.activity.RecyclerViewActivity;
+import com.momo.basedemo.activity.RefreshRecyclerViewActivity;
 import com.momo.basedemo.base.BaseFragment;
 
 import butterknife.ButterKnife;
@@ -50,11 +51,14 @@ public class FragmentFirst extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick(R.id.item_tv)
+    @OnClick({R.id.item_tv, R.id.item_tv1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.item_tv:
                 startActivity(new Intent(getActivity(), RecyclerViewActivity.class));
+                break;
+            case R.id.item_tv1:
+                startActivity(new Intent(getActivity(), RefreshRecyclerViewActivity.class));
                 break;
         }
     }
