@@ -70,7 +70,7 @@ public class RefreshRecyclerViewActivity extends BaseActivity {
         for (int i = 0; i < 1000; i++) {
             datas.add("测试RecyclerView性能" + i);
         }
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         recyclerView.addItemDecoration(new GridItemDecoration(mContext, R.color.colorAccent));
         initAdapter();
         addHeadView();

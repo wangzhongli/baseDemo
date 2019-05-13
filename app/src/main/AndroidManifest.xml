@@ -39,9 +39,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <!--<activity -->
-        <!-- android:name=".main.MainTabActivity" -->
-        <!-- android:label="@string/title_activity_main2"></activity> -->
+        <activity
+         android:name=".main.MainActivity"
+         android:label="@string/title_activity_main2"></activity>
         <activity
             android:name=".main.MainTabActivity"
             android:label="@string/app_name">
