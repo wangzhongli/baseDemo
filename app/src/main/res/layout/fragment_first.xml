@@ -46,4 +46,18 @@
         android:text="RecyclerView  Pull TO Refresh" />
 
     <View style="@style/line_horizontal_style" />
+
+    <TextView
+        android:id="@+id/item_tv2"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_item_child"
+        android:drawableRight="@drawable/right_arrow"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="动态申请权限" />
+
+    <View style="@style/line_horizontal_style" />
 </LinearLayout>

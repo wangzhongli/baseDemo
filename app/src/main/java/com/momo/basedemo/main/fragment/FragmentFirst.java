@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.momo.basedemo.R;
+import com.momo.basedemo.activity.PermissionsActivity;
 import com.momo.basedemo.activity.RecyclerViewActivity;
 import com.momo.basedemo.activity.RefreshRecyclerViewActivity;
 import com.momo.basedemo.base.BaseFragment;
@@ -52,17 +53,20 @@ public class FragmentFirst extends BaseFragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.main,R.id.item_tv, R.id.item_tv1})
+    @OnClick({R.id.main, R.id.item_tv, R.id.item_tv1, R.id.item_tv2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.main:
                 startActivity(new Intent(getActivity(), MainActivity.class));
                 break;
-                case R.id.item_tv:
+            case R.id.item_tv:
                 startActivity(new Intent(getActivity(), RecyclerViewActivity.class));
                 break;
             case R.id.item_tv1:
                 startActivity(new Intent(getActivity(), RefreshRecyclerViewActivity.class));
+                break;
+            case R.id.item_tv2:
+                startActivity(new Intent(getActivity(), PermissionsActivity.class));
                 break;
         }
     }

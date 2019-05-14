@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/read_sms"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_margin="10dip"
+        android:drawableRight="@drawable/right_arrow"
+        android:gravity="center_vertical"
+        android:text="读取短信记录"
+        android:textColor="@color/clickspan_color"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/read_sms_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:hint="短信记录"
+        android:minLines="3"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/read_sms" />
+
+    <TextView
+        android:id="@+id/read_contact"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:layout_margin="10dip"
+        android:drawableRight="@drawable/right_arrow"
+        android:gravity="center_vertical"
+        android:text="读取联系人记录"
+        android:textColor="@color/clickspan_color"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/read_sms_content" />
+
+    <TextView
+        android:id="@+id/read_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:hint="联系人记录"
+        android:minLines="3"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/read_contact" />
+</android.support.constraint.ConstraintLayout>

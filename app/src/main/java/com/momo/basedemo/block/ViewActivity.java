@@ -9,9 +9,6 @@ import com.momo.basedemo.R;
 import com.momo.basedemo.net.schedulers.SchedulerProvider;
 
 
-/**
- * Created by Zaifeng on 2018/3/1.
- */
 
 public class ViewActivity extends AppCompatActivity implements Contract.View {
 
