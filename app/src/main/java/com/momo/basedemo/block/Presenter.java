@@ -7,7 +7,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 
-
 public class Presenter {
 
     private Model model;
@@ -18,22 +17,18 @@ public class Presenter {
 
     private CompositeDisposable mDisposable;
 
-    public Presenter(Model model,
-                     Contract.View view,
-                     BaseSchedulerProvider schedulerProvider) {
+    public Presenter(Model model, Contract.View view, BaseSchedulerProvider schedulerProvider) {
         this.model = model;
         this.view = view;
         this.schedulerProvider = schedulerProvider;
         mDisposable = new CompositeDisposable();
-
     }
 
-    public void despose(){
+    public void despose() {
         mDisposable.dispose();
     }
 
     public void getList() {
-
         Disposable disposable = model.getCarList("xxxxxx")
                 .compose(ResponseTransformer.handleResult())
                 .compose(schedulerProvider.applySchedulers())

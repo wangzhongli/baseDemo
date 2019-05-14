@@ -9,12 +9,10 @@ import java.util.List;
 import io.reactivex.Observable;
 
 
-
-
 public class Contract {
 
     public interface Persenter {
-        public void getCarList(String userId);
+        void getCarList(String userId);
     }
 
     public interface View {
