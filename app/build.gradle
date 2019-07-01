@@ -75,5 +75,12 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     api 'com.orhanobut:logger:2.2.0'
     //日志打印库
+
+
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
+
+    implementation "com.google.guava:guava:$rootProject.guavaVersion"
+
     api project(':library')
 }

@@ -11,10 +11,19 @@ import android.view.MenuItem;
 
 import com.momo.basedemo.R;
 import com.momo.basedemo.base.BaseActivity;
+import com.momo.basedemo.bean.Task;
+import com.momo.basedemo.dataSource.Injection;
+import com.momo.basedemo.dataSource.TaskDataSource;
+import com.momo.basedemo.dataSource.TasksRepository;
+import com.momo.basedemo.dataSource.local.LocalTaskDataSource;
+import com.momo.basedemo.dataSource.local.MyDatabase;
+import com.momo.basedemo.dataSource.local.TaskDao;
+import com.momo.basedemo.dataSource.remote.RemoteTaskDataSource;
 import com.momo.basedemo.main.fragment.FragmentFirst;
 import com.momo.basedemo.main.fragment.FragmentFourth;
 import com.momo.basedemo.main.fragment.FragmentSecond;
 import com.momo.basedemo.main.fragment.FragmentThird;
+import com.momo.basedemo.thread.AppExecutors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,10 +80,21 @@ public class MainTabActivity extends BaseActivity {
         setTitle(null);
         initView();
         initFragment();
+
     }
 
     public void initView() {
+        Injection.provideTasksRepository(mContext).getTasks(new TaskDataSource.LoadTasksCallback() {
+            @Override
+            public void onTasksLoaded(List<Task> tasks) {
+                System.out.println(tasks.size());
+            }
 
+            @Override
+            public void onDataNotAvailable() {
+
+            }
+        });
         viewPager = (ViewPager) findViewById(R.id.vp_content);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -26,7 +26,11 @@ ext {
     compileSdkVersion = 28
     buildToolsVersion = '28.0.3'
     sourceCompatibility = JavaVersion.VERSION_1_8
+    roomVersion = '1.1.1'
+    guavaVersion = '27.0.1-android'
+
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

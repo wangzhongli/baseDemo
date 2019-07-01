@@ -2,6 +2,7 @@ package com.momo.basedemo;
 
 import android.app.Application;
 
+import com.momo.basedemo.net.NetWorkManager;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -21,8 +22,11 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        NetWorkManager.getInstance().init();
         if (BuildConfig.DEBUG) {
             Logger.addLogAdapter(new AndroidLogAdapter());
         }
     }
+
+
 }

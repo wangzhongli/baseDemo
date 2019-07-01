@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.momo.basedemo.R;
 import com.momo.basedemo.base.BaseActivity;
+import com.momo.basedemo.dataSource.local.MyDatabase;
 
 public class FirstActivity extends BaseActivity {
     @Override
